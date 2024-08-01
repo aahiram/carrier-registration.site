@@ -105,6 +105,14 @@
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
+            @guest
+                <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                    {{ __('Login') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                    {{ __('Register') }}
+                </x-responsive-nav-link>
+            @endguest
             @auth
                     @if(\Illuminate\Support\Facades\Auth::user()->type == 1)
                             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('Dashboard')">
@@ -119,14 +127,7 @@
                                 {{ __('Contract') }}
                             </x-responsive-nav-link>
                     @endif
-                @guest
-                    <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                        {{ __('Login') }}
-                    </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                        {{ __('Register') }}
-                    </x-responsive-nav-link>
-                @endguest
+
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name.' '.Auth::user()->lastname }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
