@@ -1,6 +1,6 @@
-@servers(['kuehne-nagel' => 'u251417263@46.17.175.200 -p 65002'])
+@servers(['kuehne-nagel.site' => 'u251417263@46.17.175.200 -p 65002'])
 
-@task('deploy', ['on' => 'kuehne-nagel'])
+@task('deploy', ['on' => 'kuehne-nagel.site'])
 
 cd /home/u251417263/domains/kuehne-nagel.site
 
