@@ -8,6 +8,8 @@ set -e
 
 echo "Deploying.."
 
+git remote set-url origin https://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@github.com/aahiram/kuehne-nagel.site.git
+
 git pull origin main
 
 php artisan down
