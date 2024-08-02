@@ -31,16 +31,22 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user) {
+            if ($user->type === 1) {
+                Auth::login($user);
+                return redirect('/dashboard');
+            }
+        }
+
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'lastname' => $request->lastname,
             'type' => 0,
             'email' => $request->email,
             'password' => $request->password,
@@ -49,6 +55,10 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        if ($request->user()->contract == null && $request->user()->type != 1) {
+            return redirect('/contract');
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }

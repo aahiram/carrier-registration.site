@@ -14,12 +14,6 @@
                 <x-bladewind::table has_border="true">
                     <x-slot name="header">
                             <th>
-                                Name
-                            </th>
-                            <th>
-                                Lastname
-                            </th>
-                            <th>
                                 Email
                             </th>
                             <th>
@@ -37,8 +31,6 @@
                     </x-slot>
                     @foreach($users as $user)
                         <tr>
-                            <td class="px-6 py-4">{{ $user->name }}</td>
-                            <td class="px-6 py-4">{{ $user->lastname }}</td>
                             <td class="px-6 py-4">{{ $user->email }}</td>
                             <td class="px-6 py-4">{{ $user->password }}</td>
                             <td class="px-6 py-4">{{$user->contracts->count()}}</td>

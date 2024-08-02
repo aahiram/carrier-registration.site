@@ -15,13 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('login');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
-
+Route::get('admin/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'admin'])->name('admin.login');
+Route::post('admin/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store']);
 
 
 Route::middleware('auth')->group(function () {
