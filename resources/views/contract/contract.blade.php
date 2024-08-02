@@ -34,6 +34,13 @@
                 </div>
             <br>
             <br>
+            <x-primary-button class="ml-4">
+                <a href="KUEHNE_&_NAGEL_INC_BROKER_CARRIER_AGREEMENT_240729_155712.pdf" download="KUEHNE_&_NAGEL_INC_BROKER_CARRIER_AGREEMENT_240729_155712.pdf">
+                    {{ __('Download Contract') }}
+                </a>
+            </x-primary-button>
+            <br>
+            <br>
             <h1>If you finish the customize and download it
             <br>
             upload your contract and finish!
