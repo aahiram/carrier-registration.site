@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('admin/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'admin'])->name('admin.login');
-Route::post('admin/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store']);
+//Route::get('admin/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'admin'])->name('admin.login');
+//Route::post('admin/login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store']);
 
 
 Route::middleware('auth')->group(function () {
