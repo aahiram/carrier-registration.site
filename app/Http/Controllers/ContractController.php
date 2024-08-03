@@ -20,14 +20,14 @@ class ContractController extends Controller
         if ($request->file('file')) {
             $file = $request->file('file');
             $fileName = $request->file('file')->getClientOriginalName();
-            $path = $file->storeAs('contracts',$request->user()->name.'_'.$request->user()->lastname.'_'.$fileName,'public'); // Store the file in the 'contracts' directory in the 'public' disk
+            $path = $file->storeAs('contracts',$request->user()->email.'_'.$fileName,'public'); // Store the file in the 'contracts' directory in the 'public' disk
 
             // Create a new contract record
             Contract::create([
                 'user_id' => $request->user()->id,
-                'contract_name' => $request->user()->name.'_'.$request->user()->lastname.'_Contract',
+                'contract_name' => $request->user()->email.'_Contract',
                 'file_path' => $path,
-                'contract_details' => $request->user()->name.'_'.$request->user()->lastname.'_'.$path,
+                'contract_details' => $request->user()->email.'_'.$path,
             ]);
 
             return redirect()->back()->with('success','file was successfully uploaded.');
