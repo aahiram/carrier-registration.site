@@ -54,12 +54,13 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+//        Auth::login($user);
 
-        if ($request->user()->contract == null && $request->user()->type != 1) {
-            return redirect('/contract');
-        }
+//        if ($request->user()->contract == null && $request->user()->type != 1) {
+//            return redirect('/contract');
+//        }
 
-        return redirect(RouteServiceProvider::HOME);
+//        return redirect(RouteServiceProvider::HOME);
+          return redirect()->back()->with('success','Success');
     }
 }

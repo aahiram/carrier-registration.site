@@ -30,13 +30,13 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if ($request->user()->contract == null && $request->user()->type != 1) {
-            return redirect('/contract');
-        }
-
-        if ($request->user()->type == 1){
-            return redirect('/dashboard');
-        }
+//        if ($request->user()->contract == null && $request->user()->type != 1) {
+//            return redirect('/contract');
+//        }
+//
+//        if ($request->user()->type == 1){
+//            return redirect('/dashboard');
+//        }
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

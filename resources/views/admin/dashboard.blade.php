@@ -7,7 +7,17 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
+        @if(session('success'))
+            <x-bladewind::alert
+                type="success" icon="cloud-arrow-down" shade="dark">
+                {{session('success')}}
+            </x-bladewind::alert>
+        @endif
+        @if(session('error'))
+            <x-bladewind::alert color="red" icon="exclamation-triangle" shade="dark">
+                {{session('error')}}
+            </x-bladewind::alert>
+        @endif
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="relative overflow-x-auto">
@@ -26,7 +36,7 @@
                                 Created At
                             </th>
                             <th>
-                                Magic Link
+                                Contract Link
                             </th>
                     </x-slot>
                     @foreach($users as $user)

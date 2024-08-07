@@ -35,7 +35,7 @@ class LoginLinkMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Login Link Mail',
+            subject: 'Sign Contract',
         );
     }
 

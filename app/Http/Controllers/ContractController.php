@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contract;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ContractController extends Controller
 {
+
+    public function showContractForm(Request $request, User $user)
+    {
+        return view('auth.contract', compact('user'));
+    }
     public function store(Request $request)
     {
 

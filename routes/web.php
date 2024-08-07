@@ -28,19 +28,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/contracts',[\App\Http\Controllers\AdminController::class, 'contracts'])->name('contracts');
     Route::post('/sendEmailLink/{user}',[\App\Http\Controllers\AdminController::class, 'sendLoginLink'])->name('sendLoginLink');
     });
-    Route::get('/contract', [\App\Http\Controllers\UserController::class, 'contract'])->name('contract');
-    Route::post('/contract/upload', [\App\Http\Controllers\ContractController::class, 'store'])->name('contract.store');
+//    Route::get('/contract', [\App\Http\Controllers\UserController::class, 'contract'])->name('contract');
+//    Route::post('/contract/upload', [\App\Http\Controllers\ContractController::class, 'store'])->name('contract.store');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 
-Route::get('login/{user}', [\App\Http\Controllers\LoginController::class, 'showPasswordForm'])
-    ->name('user.login.form')
+Route::get('contract/{user}', [\App\Http\Controllers\ContractController::class, 'showContractForm'])
+    ->name('contract')
     ->middleware('signed');
 
-Route::post('login/{user}', [\App\Http\Controllers\LoginController::class, 'login'])->name('user.login');
+Route::post('contract/{user}', [\App\Http\Controllers\ContractController::class, 'store'])->name('contract.store');
 
 
 require __DIR__.'/auth.php';

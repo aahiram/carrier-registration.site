@@ -1,12 +1,12 @@
 @component('mail::message')
     Hi, {{ $user->name.' '.$user->lastname }}
     <br>
-    Please use the link below to log in:
+    Please use the link below to sign a contract in:
     <br>
     This link will expire in 30 minutes.
     <br>
     @component('mail::button',['url' => $link])
-    Log in
+    Sign Contract
     @endcomponent
     Thanks,
     <br>

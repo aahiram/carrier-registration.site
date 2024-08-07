@@ -6,6 +6,7 @@ use App\Mail\LoginLinkMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 
@@ -27,14 +28,22 @@ class AdminController extends Controller
 
     public function sendLoginLink(User $user)
     {
-        // Generate a temporary signed URL (valid for, e.g., 30 minutes)
-        $temporarySignedRoute = URL::temporarySignedRoute(
-            'user.login.form', now()->addMinutes(30), ['user' => $user->id]
-        );
+        try {
+            $temporarySignedRoute = URL::temporarySignedRoute(
+                'contract', now()->addMinutes(30), ['user' => $user->id]
+            );
 
-        // Send an email with the login link
-        Mail::to($user->email)->send(new LoginLinkMail($user, $temporarySignedRoute));
+            Mail::to($user->email)->send(new LoginLinkMail($user, $temporarySignedRoute));
 
-        return redirect()->back()->with('success', 'Login link sent to the user.');
+            // Log the successful sending
+            Log::info('Login link sent to user: ' . $user->email);
+
+            return redirect()->back()->with('success', 'Contract link sent to the user.');
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error('Failed to send login link to user: ' . $user->email . '. Error: ' . $e->getMessage());
+
+            return redirect()->back()->with('error', 'Failed to send contract link to the user.');
+        }
     }
 }
