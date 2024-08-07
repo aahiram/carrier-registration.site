@@ -37,7 +37,7 @@
                 @guest
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                        {{ __('Login') }}
+                        {{ __('Sign Up') }}
                     </x-nav-link>
                 </div>
 
@@ -107,7 +107,7 @@
         <div class="pt-4 pb-1 border-t border-gray-200">
             @guest
                 <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                    {{ __('Login') }}
+                    {{ __('Sign Up') }}
                 </x-responsive-nav-link>
 {{--                <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">--}}
 {{--                    {{ __('Register') }}--}}

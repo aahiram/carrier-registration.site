@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
     @section('title')
-        {{__('Login')}}
+        {{__('Sign Up')}}
     @endsection
 
     <h2>Sign Up with Google Account</h2>
@@ -32,11 +32,11 @@
             <x-text-input  class="block mt-1 w-full" type="text" required autofocus/>
         </div>
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+{{--        <div>--}}
+{{--            <x-input-label for="email" :value="__('Email')" />--}}
+{{--            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" />--}}
+{{--            <x-input-error :messages="$errors->get('email')" class="mt-2" />--}}
+{{--        </div>--}}
 
         <!-- Password -->
         <div class="mt-4">
@@ -66,7 +66,7 @@
 {{--            @endif--}}
 
             <x-primary-button class="ml-3">
-                {{ __('Log in') }}
+                {{ __('Sign Up') }}
             </x-primary-button>
         </div>
     </form>
