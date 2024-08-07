@@ -25,15 +25,15 @@
                         </div>
                     @endif
                 @endauth
-                @auth
-                    @if(\Illuminate\Support\Facades\Auth::user()->type != 1)
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-nav-link :href="route('contract')" :active="request()->routeIs('contract')">
-                                {{ __('Contract') }}
-                            </x-nav-link>
-                        </div>
-                    @endif
-                @endauth
+{{--                @auth--}}
+{{--                    @if(\Illuminate\Support\Facades\Auth::user()->type != 1)--}}
+{{--                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
+{{--                            <x-nav-link :href="route('contract')" :active="request()->routeIs('contract')">--}}
+{{--                                {{ __('Contract') }}--}}
+{{--                            </x-nav-link>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
+{{--                @endauth--}}
                 @guest
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
@@ -122,11 +122,11 @@
                         {{ __('Contracts') }}
                     </x-responsive-nav-link>
                     @endif
-                    @if(\Illuminate\Support\Facades\Auth::user()->contract == null)
-                            <x-responsive-nav-link :href="route('contract')" :active="request()->routeIs('contract')">
-                                {{ __('Contract') }}
-                            </x-responsive-nav-link>
-                    @endif
+{{--                    @if(\Illuminate\Support\Facades\Auth::user()->contract == null)--}}
+{{--                            <x-responsive-nav-link :href="route('contract')" :active="request()->routeIs('contract')">--}}
+{{--                                {{ __('Contract') }}--}}
+{{--                            </x-responsive-nav-link>--}}
+{{--                    @endif--}}
 
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name.' '.Auth::user()->lastname }}</div>
