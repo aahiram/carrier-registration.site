@@ -27,16 +27,16 @@
             <x-text-input  class="block mt-1 w-full" type="text" required autofocus/>
         </div>
         <!-- Email Address -->
-        <div>
-            <x-input-label for="FMCSA Email" :value="__('FMCSA Email')" />
-            <x-text-input  class="block mt-1 w-full" type="text" required autofocus/>
-        </div>
-        <!-- Email Address -->
 {{--        <div>--}}
-{{--            <x-input-label for="email" :value="__('Email')" />--}}
-{{--            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" />--}}
-{{--            <x-input-error :messages="$errors->get('email')" class="mt-2" />--}}
+{{--            <x-input-label for="FMCSA Email" :value="__('FMCSA Email')" />--}}
+{{--            <x-text-input  class="block mt-1 w-full" type="text" required autofocus/>--}}
 {{--        </div>--}}
+        <!-- Email Address -->
+        <div>
+            <x-input-label for="email" :value="__('FMCSA Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
 
         <!-- Password -->
         <div class="mt-4">
