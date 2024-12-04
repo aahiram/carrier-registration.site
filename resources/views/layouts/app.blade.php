@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title') </title>
         <link rel="shortcut icon" type="x-icon" href="{{config('app.logo')}}"/>
         <link rel="apple-touch-icon" type="image/png" href="{{config('app.logo')}}"/>
 {{--        <link rel="stylesheet" href="./css/header.css"/>--}}
@@ -29,9 +29,9 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased bg-blue-300">
+    <body class="font-sans antialiased bg-white">
         <div class="min-h-screen">
-            @include('layouts.navigation')
+{{--            @include('layouts.navigation')--}}
 
             <!-- Page Heading -->
 {{--            @if (isset($header))--}}

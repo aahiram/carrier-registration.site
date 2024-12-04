@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title')</title>
         <link rel="shortcut icon" type="x-icon" href="{{config('app.logo')}}"/>
         <link rel="apple-touch-icon" type="image/png" href="{{config('app.logo')}}"/>
 {{--        <link rel="stylesheet" href="/css/header.css"/>--}}
@@ -23,8 +23,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased bg-blue-300">
-    @include('layouts.navigation')
+    <body class="font-sans text-gray-900 antialiased bg-white">
+{{--    @include('layouts.navigation')--}}
 
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
 {{--             <div>--}}
@@ -32,12 +32,17 @@
 {{--                    <img class="block h-9 w-auto fill-current text-gray-800" src="{{asset('logo-blue.png')}}" alt="logo"/>--}}
 {{--                </a>--}}
 {{--            </div>--}}
-            @if(session('success'))
-                <x-bladewind::alert
-                    type="success" icon="cloud-arrow-down" shade="dark">
-                    {{session('success')}}
-                </x-bladewind::alert>
-            @endif
+{{--            @if(session('success'))--}}
+{{--                <x-bladewind::alert--}}
+{{--                    type="success" icon="cloud-arrow-down" shade="dark">--}}
+{{--                    {{session('success')}}--}}
+{{--                </x-bladewind::alert>--}}
+{{--            @endif--}}
+{{--            @if(session('error'))--}}
+{{--                <x-bladewind::alert color="red" icon="exclamation-triangle" shade="dark">--}}
+{{--                    {{session('error')}}--}}
+{{--                </x-bladewind::alert>--}}
+{{--            @endif--}}
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>

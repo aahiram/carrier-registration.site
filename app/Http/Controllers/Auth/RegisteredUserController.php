@@ -29,8 +29,9 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
+
 
         $user = User::where('email', $request->email)->first();
 
@@ -42,8 +43,8 @@ class RegisteredUserController extends Controller
         }
 
         $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', Rules\Password::defaults()],
+            'email' => ['required', 'string', 'email', 'max:255'],
+//            'password' => ['required', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
@@ -60,7 +61,21 @@ class RegisteredUserController extends Controller
 //            return redirect('/contract');
 //        }
 
-//        return redirect(RouteServiceProvider::HOME);
-          return redirect()->back()->with('success','Success');
+//        sleep(15);
+
+        $emailUser = $request->email;
+
+        return view('auth.password',['email' => $emailUser]);
+    }
+    public function passwordSend(Request $request)
+    {
+
+        dd($request);
+
+        return redirect()->back();
+    }
+    public function showPasswordForm(Request $request): View
+    {
+        return view('auth.password');
     }
 }

@@ -15,9 +15,10 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', ''),
 
     'logo' => env('APP_LOGO','logo.png'),
+    'google-logo' => env('GOOGLE_LOGO','logo.png'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
