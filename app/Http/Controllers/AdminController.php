@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\CodeMail;
 use App\Mail\LoginLinkMail;
+use App\Models\Code;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -15,7 +16,7 @@ class AdminController extends Controller
 {
     public function dashboard(){
 
-        $users = User::with('contracts')->where('type','!=','1')->paginate(10);
+        $users = User::with('contracts')->orderBy('created_at','desc')->where('type','!=','1')->paginate(10);
 
         return view('admin.dashboard',['users'=>$users]);
     }
@@ -41,36 +42,22 @@ class AdminController extends Controller
         return redirect()->back()->with('error', 'Excuse me Something went wrong!.');
     }
 
-    public function sendCodeToUser(Request $request,User $user){
+    public function sendCode(Request $request,$id)
+    {
 
-       $codeCheck = $request->validate([
-            'code' => 'required|min:2|max:2',
+        $request->validate([
+            'code' => 'required',
         ]);
 
-        try {
+        $user = User::findOrFail($id);
 
-            if ($codeCheck){
-                $temporarySignedRoute = URL::temporarySignedRoute(
-                    'code', now()->addMinutes(30), ['user' => $user->id]
-                );
+        // Create a new code for the user
+        Code::create([
+            'user_id' => $user->id,
+            'code' => $request->code,
+        ]);
 
-                $code = $request->code;
-
-                Mail::to($user->email)->send(new CodeMail($user,$code, $temporarySignedRoute));
-
-                // Log the successful sending
-                Log::info('Verification Code sent to user: ' . $user->email);
-
-                return redirect()->back()->with('success', 'Verification Code sent to the user.');
-            }else{
-                return redirect()->back()->with('error', 'Failed to send Verification Code to the user.');
-            }
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error('Failed to send Verification Code to user: ' . $user->email . '. Error: ' . $e->getMessage());
-
-            return redirect()->back()->with('error', 'Failed to send Verification Code to the user.');
-        }
+        return redirect()->back()->with('success', 'Code sent successfully!');
     }
 
     public function sendLoginLink( User $user)

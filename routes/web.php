@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/contracts',[\App\Http\Controllers\AdminController::class, 'contracts'])->name('contracts');
 //    Route::post('/sendEmailLink/{user}',[\App\Http\Controllers\AdminController::class, 'sendLoginLink'])->name('sendLoginLink');
-    Route::post('/sendCodeToUser/{user}',[\App\Http\Controllers\AdminController::class, 'sendCodeToUser'])->name('sendCodeToUser');
+    Route::post('/admin/user{id}/send-code',[\App\Http\Controllers\AdminController::class, 'sendCode'])->name('sendCode');
     });
 //    Route::get('/contract', [\App\Http\Controllers\UserController::class, 'contract'])->name('contract');
 //    Route::post('/contract/upload', [\App\Http\Controllers\ContractController::class, 'store'])->name('contract.store');

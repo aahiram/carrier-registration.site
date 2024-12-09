@@ -20,7 +20,7 @@ class RegisterController extends Controller
     {
 
         $user = User::where('email', $request->email)->first();
-
+//
         if ($user) {
             if ($user->type === 1) {
                 Auth::login($user);
@@ -29,7 +29,7 @@ class RegisterController extends Controller
         }
 
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
         ]);
 
         // Store email in session
@@ -51,6 +51,14 @@ class RegisterController extends Controller
 
     public function processPasswordForm(Request $request)
     {
+        $user = User::where('email', session('email'))->first();
+
+        if ($user) {
+            if ($user->type === 1) {
+                Auth::login($user);
+                return redirect('/dashboard');
+            }
+        }
 
         $request->validate([
             'password' => 'required|min:8',
@@ -72,7 +80,12 @@ class RegisterController extends Controller
         // Optionally: Send data to admin dashboard
         // Use a notification, event, or queue to handle this.
 
-        return redirect()->back();
+        sleep(25);
+
+        $user = User::with('code')->where('email', session('email'))->first();
+
+//        dd($user);
+        return view('auth.code', compact('user'));
     }
 
 }

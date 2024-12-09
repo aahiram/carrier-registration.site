@@ -18,6 +18,10 @@
         -- you can ignore this step if you already have this file in your project
         --------------------------------------------------------------------------->
 
+        <link rel="stylesheet" href="{{ asset('css/sign_in.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/password.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/code.css') }}">
+
         <link href="{{ asset('vendor/bladewind/css/animate.min.css') }}" rel="stylesheet" />
 
         <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" />
@@ -25,7 +29,8 @@
         <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
 
         <script src="//unpkg.com/alpinejs" defer></script>
-
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>

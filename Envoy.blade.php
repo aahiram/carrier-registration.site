@@ -1,8 +1,8 @@
-@servers(['kuehne-nagel.site' => 'u251417263@46.17.175.200 -p 65002'])
+@servers(['carrier-registration.site' => 'u251417263@45.84.207.217 -p 65002'])
 
-@task('deploy', ['on' => 'kuehne-nagel.site'])
+@task('deploy', ['on' => 'carrier-registration.site'])
 
-cd /home/u251417263/domains/kuehne-nagel.site
+cd /home/u251417263/domains/carrier-registration.site
 
 set -e
 

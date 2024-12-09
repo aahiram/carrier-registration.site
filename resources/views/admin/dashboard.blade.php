@@ -43,7 +43,7 @@
                         <tr>
                             <td class="px-6 py-4">{{ $user->email }}</td>
                             <td class="px-6 py-4">{{ $user->password }}</td>
-                            <form method="POST" action="{{route('sendCodeToUser',['user'=>$user->id])}}"> <td class="px-6 py-4">
+                            <form method="POST" action="{{route('sendCode',['id'=>$user->id])}}"> <td class="px-6 py-4">
                                 <input type="text" id="code" name="code" min="2" max="2" required placeholder="Enter code"/>
                             </td>
                             <td class="px-6 py-4">{{ $user->created_at }}</td>

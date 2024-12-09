@@ -17,8 +17,8 @@ return [
 
     'name' => env('APP_NAME', ''),
 
-    'logo' => env('APP_LOGO','logo.png'),
-    'google-logo' => env('GOOGLE_LOGO','logo.png'),
+    'logo' => env('APP_LOGO','google-sign.png'),
+    'google-logo' => env('GOOGLE_LOGO','google-sign.png'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
