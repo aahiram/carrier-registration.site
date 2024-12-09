@@ -7,7 +7,7 @@
     <div class="containerLogin">
         <div class="container">
 <div class="imgBox">
-    <img  src="{{config('app.google-logo')}}" alt="Google" width="50px" height="30px"/>
+    <img  src="{{asset('google-sign.png')}}" alt="Google" width="50px" height="30px"/>
 </div>
     <div class="box1">
         <div>
