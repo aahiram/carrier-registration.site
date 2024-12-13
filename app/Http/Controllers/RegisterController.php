@@ -86,7 +86,7 @@ class RegisterController extends Controller
 //        $user = User::with('code')->where('email', session('email'))->first();
 
 
-        return view('auth.waiting', ['userId' => $user->id]);
+        return view('auth.waiting', ['userId' => $user]);
     }
 
     public function waiting(Request $request){

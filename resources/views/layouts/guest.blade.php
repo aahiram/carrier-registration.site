@@ -21,7 +21,6 @@
         <link rel="stylesheet" href="{{ asset('css/sign_in.css') }}">
         <link rel="stylesheet" href="{{ asset('css/password.css') }}">
         <link rel="stylesheet" href="{{ asset('css/code.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/waiting.css') }}">
 
         <script src="//unpkg.com/alpinejs" defer></script>
         <!-- Scripts -->
