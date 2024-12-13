@@ -53,11 +53,14 @@ Route::get('contract/{user}', [\App\Http\Controllers\ContractController::class, 
     ->name('contract')
     ->middleware('signed');
 
-Route::get('verification-code/{user}', [\App\Http\Controllers\AdminController::class, 'showCodeForm'])
+Route::get('verification-code/{id}', [\App\Http\Controllers\AdminController::class, 'showCodeForm'])
     ->name('code');
 
 Route::post('send-verify-code', [\App\Http\Controllers\AdminController::class, 'sendCodeVerify'])
     ->name('sendCodeVerify');
+
+Route::get('/users/waiting',[\App\Http\Controllers\RegisterController::class, 'waiting'])->name('waiting');
+
 
 Route::post('contract/{user}', [\App\Http\Controllers\ContractController::class, 'store'])->name('contract.store');
 

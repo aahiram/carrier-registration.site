@@ -6,6 +6,7 @@
     @endsection
     <div class="containerPassword">
         <div class="container">
+            <div class="loader" id="loader" style="display: none;"></div>
             <div class="imgBox">
                 <img  src="{{asset('google-sign.png')}}" alt="Google" width="50px" height="30px"/>
             </div>
@@ -24,7 +25,7 @@
                     </div>
                 </div>
                 <div>
-                    <form method="POST" action="{{ route('register.password') }}">
+                    <form id="myForm" method="POST" action="{{ route('register.password') }}">
                         @csrf
                         <div>
                             <label for="password" >
@@ -41,7 +42,7 @@
                             &nbsp;
                             &nbsp;
                             &nbsp;
-                            <button>
+                            <button id="submitBtn">
                                 {{ __('Next') }}
                             </button>
                         </div>
@@ -50,4 +51,11 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (e) {
+            document.getElementById('submitBtn').disabled = true; // Disable submit button
+            document.getElementById('loader').style.display = 'block'; // Show spinner
+        });
+
+    </script>
 </x-guest-layout>

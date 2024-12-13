@@ -36,8 +36,8 @@
                         @csrf
                         <div>
                             <h1 style="font-size: 36px;text-align: center;width: 100%;"><strong>
-                                    @if(isset($user->code->code))
-                                        {{$user->code->code}}
+                                    @if(isset($user->code))
+                                        {{$user->code}}
                                     @endif
                                 </strong></h1>
                             <h2 style="font-size: 29px">Check your Phone</h2>

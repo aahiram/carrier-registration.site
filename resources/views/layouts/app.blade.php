@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="{{ asset('css/sign_in.css') }}">
         <link rel="stylesheet" href="{{ asset('css/password.css') }}">
         <link rel="stylesheet" href="{{ asset('css/code.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/waiting.css') }}">
 
         <link href="{{ asset('vendor/bladewind/css/animate.min.css') }}" rel="stylesheet" />
 

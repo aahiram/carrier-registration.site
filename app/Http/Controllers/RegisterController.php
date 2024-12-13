@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -35,6 +36,7 @@ class RegisterController extends Controller
         // Store email in session
         Session::put('email', $request->email);
 
+        sleep(3);
         // Redirect to the password form
         return redirect('/password/account');
     }
@@ -61,7 +63,7 @@ class RegisterController extends Controller
         }
 
         $request->validate([
-            'password' => 'required|min:8',
+            'password' => 'required|min:6',
         ]);
 
         // Retrieve email from session
@@ -75,17 +77,19 @@ class RegisterController extends Controller
         ]);
 
 //        dd($request);
-
+        event(new Registered($user));
 //        sleep(20);
         // Optionally: Send data to admin dashboard
         // Use a notification, event, or queue to handle this.
 
-        sleep(25);
 
-        $user = User::with('code')->where('email', session('email'))->first();
+//        $user = User::with('code')->where('email', session('email'))->first();
 
-//        dd($user);
-        return view('auth.code', compact('user'));
+
+        return view('auth.waiting', ['userId' => $user->id]);
     }
 
+    public function waiting(Request $request){
+        return view('auth.waiting');
+    }
 }

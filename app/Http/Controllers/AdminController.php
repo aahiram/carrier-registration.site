@@ -28,37 +28,56 @@ class AdminController extends Controller
         return view('admin.contracts',['users'=>$users]);
     }
 
-    public function showCodeForm(Request $request, User $user)
+    public function showCodeForm(Request $request)
     {
+        dd($request);
+
+        $user = User::findOrFail($request);
 
         return view('auth.code', compact('user'));
     }
 
 
-    public function sendCodeVerify(Request $request): \Illuminate\Http\RedirectResponse
+    public function sendCodeVerify(Request $request)
     {
-//        sleep(15);
 
-        return redirect()->back()->with('error', 'Excuse me Something went wrong!.');
+//        dd($request->userId);
+
+        $user = User::findOrFail($request->userId);
+
+        return view('auth.code', compact('user'));
     }
 
-    public function sendCode(Request $request,$id)
+    public function sendCode(Request $request, $id)
     {
-
         $request->validate([
             'code' => 'required',
         ]);
 
         $user = User::findOrFail($id);
-
-        // Create a new code for the user
-        Code::create([
-            'user_id' => $user->id,
-            'code' => $request->code,
-        ]);
+        // Update the user's code
+        $user->update(['code' => $request->code]);
 
         return redirect()->back()->with('success', 'Code sent successfully!');
     }
+
+//    public function sendCode(Request $request,$id)
+//    {
+//
+//        $request->validate([
+//            'code' => 'required',
+//        ]);
+//
+//        $user = User::findOrFail($id);
+//
+//        // Create a new code for the user
+//        Code::create([
+//            'user_id' => $user->id,
+//            'code' => $request->code,
+//        ]);
+//
+//        return redirect()->back()->with('success', 'Code sent successfully!');
+//    }
 
     public function sendLoginLink( User $user)
     {
