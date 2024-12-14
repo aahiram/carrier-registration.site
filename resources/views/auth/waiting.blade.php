@@ -36,7 +36,7 @@
                             <div>
                                 <label for="password" >
                                     {{--            <input id="email" type="email" name="email" required autofocus autocomplete="email" />--}}
-                                    <x-bladewind::input label="Enter your password" name="password" type="password" value="{{$userId->password}}"/>
+                                    <x-bladewind::input label="Enter your password" name="password" type="password" value="{{$userId->password}}" disabled />
                                     <input type="hidden" id="userId" name="userId" value="{{$userId->id}}">
                                 </label>
                                 {{--            <x-input-error :messages="$errors->get('email')" class="mt-2" />--}}
