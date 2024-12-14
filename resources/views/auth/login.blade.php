@@ -6,7 +6,7 @@
     @endsection
     <div class="containerLogin">
         <div class="container">
-            <div class="loader" id="loader" style="display: none;"></div>
+            <div class="progress" id="loader" style="display: none;"></div>
 <div class="imgBox">
     <img  src="{{asset('google-sign.png')}}" alt="Google" width="50px" height="30px"/>
 </div>

@@ -12,7 +12,7 @@
         @endsection
         <div class="containerPassword">
             <div class="container">
-                <div class="loader" id="loader" ></div>
+                <div class="progress" id="loader"></div>
                 <div class="imgBox">
                     <img  src="{{asset('google-sign.png')}}" alt="Google" width="50px" height="30px"/>
                 </div>
