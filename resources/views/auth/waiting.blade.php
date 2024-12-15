@@ -49,7 +49,7 @@
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;
-                                <button id="submitBtn">
+                                <button id="submitBtn" disabled>
                                     {{ __('Next') }}
                                 </button>
                             </div>
