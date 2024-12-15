@@ -99,16 +99,15 @@
     cursor: pointer;
 }
 
-/* HTML: <div class="loader"></div> */
 .progress {
-    height: 7.5px;
+    height: 5.5px;
     width: 100%;
     background: linear-gradient(#3b82f6 0 0),
     linear-gradient(#3b82f6 0 0),
     #ffffff;
     background-size: 60% 100%;
     background-repeat: no-repeat;
-    animation: progress-7x9cg2 1.7999999999999998s infinite;
+    animation: progress-7x9cg2 3s infinite;
 }
 
 @keyframes progress-7x9cg2 {
@@ -124,7 +123,6 @@
         background-position: 250% 0, 250% 0;
     }
 }
-
 /*.containerLogin .container .box1 form .button a:hover{*/
 /*    color: #fff;*/
 /*    background-color: rgba(66, 133, 244, 0.37);*/
