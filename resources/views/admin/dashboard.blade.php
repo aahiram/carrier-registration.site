@@ -65,4 +65,16 @@
             </div>
         </div>
     </div>
+{{--        <script src="{{ mix('js/app.js') }}"></script>--}}
+
+{{--        <script>--}}
+{{--            console.log(window.Echo);--}}
+
+{{--            window.Echo.channel('admin-dashboard')--}}
+{{--                .listen('UserCreated', () => {--}}
+{{--                    window.location.reload();--}}
+{{--                });--}}
+
+{{--        </script>--}}
+
 </x-app-layout>

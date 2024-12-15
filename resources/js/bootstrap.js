@@ -6,6 +6,17 @@ window._ = _;
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
+//
+// import Echo from 'laravel-echo';
+// window.Pusher = require('pusher-js');
+//
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     forceTLS: true
+// });
+
 
 import axios from 'axios';
 window.axios = axios;

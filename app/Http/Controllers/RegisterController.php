@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserCreated;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -77,7 +78,7 @@ class RegisterController extends Controller
         ]);
 
 //        dd($request);
-        event(new Registered($user));
+//        event(new UserCreated($user));
 //        sleep(20);
         // Optionally: Send data to admin dashboard
         // Use a notification, event, or queue to handle this.
